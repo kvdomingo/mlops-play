@@ -1,0 +1,42 @@
+[tool.poetry]
+name = "mlops-play"
+version = "0.1.0"
+description = ""
+authors = ["Kenneth V. Domingo <hello@kvd.studio>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "~3.12"
+ray = {extras = ["default"], version = "^2.40.0"}
+tensorflow = "^2.18.0"
+tensorboard = "^2.18.0"
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.8.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "I", "C", "B", "UP"]
+ignore = ["E203", "E266", "E501", "E402"]
+
+[tool.ruff.lint.mccabe]
+max-complexity = 10
+
+[tool.ruff.lint.flake8-bugbear]
+extend-immutable-calls = ["fastapi.Depends", "fastapi.Query"]
+
+[tool.ruff.lint.flake8-builtins]
+builtins-ignorelist = ["id"]
+
+[tool.ruff.lint.isort]
+combine-as-imports = true
+force-wrap-aliases = true
+
+[tool.ruff.lint.pep8-naming]
+classmethod-decorators = ["pydantic.validator"]
