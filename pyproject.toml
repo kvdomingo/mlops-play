@@ -16,6 +16,8 @@ matplotlib = "^3.9.3"
 tqdm = "^4.67.1"
 keras = "^3.7.0"
 nvidia-cudnn-cu12 = "9.3.0.75"
+pydantic = "^2.10.3"
+pydantic-settings = "^2.6.1"
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.8.1"

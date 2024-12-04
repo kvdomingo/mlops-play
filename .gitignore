@@ -179,3 +179,4 @@ data/
 .storage/
 .tensorboard/
 .checkpoints/
+.logs/
