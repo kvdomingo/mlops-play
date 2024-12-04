@@ -7,12 +7,21 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "~3.12"
-ray = {extras = ["default"], version = "^2.40.0"}
-tensorflow = "^2.18.0"
+ray = { extras = ["default", "train"], version = "^2.40.0" }
+tensorflow = { extras = ["and-cuda"], version = "^2.18.0" }
 tensorboard = "^2.18.0"
+pandas = "^2.2.3"
+numpy = "<2.1.0"
+matplotlib = "^3.9.3"
+tqdm = "^4.67.1"
+keras = "^3.7.0"
+nvidia-cudnn-cu12 = "9.3.0.75"
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.8.1"
+ipython = "^8.30.0"
+jupyter = "^1.1.1"
+notebook = "^7.2.2"
 
 [build-system]
 requires = ["poetry-core"]
