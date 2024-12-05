@@ -46,6 +46,10 @@ def main():
     )
     model.summary()
 
+    continue_ = input("\nContinue [Y/n]? ")
+    if continue_.lower() == "n":
+        return
+
     os.makedirs(settings.BASE_DIR / ".checkpoints", exist_ok=True)
     os.makedirs(settings.BASE_DIR / ".tensorboard", exist_ok=True)
     os.makedirs(settings.BASE_DIR / ".logs", exist_ok=True)
