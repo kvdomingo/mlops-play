@@ -7,7 +7,7 @@ from keras._tf_keras import keras
 
 from src.direct.settings import settings
 
-img_w, img_h, img_ch = settings.IMAGE_TARGET_SIZE
+img_w, img_h, *_ = settings.IMAGE_TARGET_SIZE
 
 
 def main():
@@ -17,6 +17,7 @@ def main():
         subset="training",
         seed=settings.RANDOM_SEED,
         image_size=(img_h, img_w),
+        color_mode="grayscale",
         batch_size=settings.BATCH_SIZE,
     )
     train_ds = train_ds.prefetch(tf.data.AUTOTUNE)
@@ -27,6 +28,7 @@ def main():
         subset="validation",
         seed=settings.RANDOM_SEED,
         image_size=(img_h, img_w),
+        color_mode="grayscale",
         batch_size=settings.BATCH_SIZE,
     )
     val_ds = val_ds.prefetch(tf.data.AUTOTUNE)

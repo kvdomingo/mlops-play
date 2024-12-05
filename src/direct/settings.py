@@ -8,9 +8,9 @@ class Settings(BaseSettings):
     BASE_DIR: Path = Path(__file__).resolve().parent.parent.parent
     RANDOM_SEED: int = 709
 
-    IMAGE_TARGET_SIZE: tuple[int, int, int] = (256, 256, 3)
-    BATCH_SIZE: int = 20
-    LEARNING_RATE: float = 1e-3
+    IMAGE_TARGET_SIZE: tuple[int, ...] = (150, 150, 1)
+    BATCH_SIZE: int = 4
+    LEARNING_RATE: float = 1e-2
     EPOCHS: int = 10
 
     @computed_field

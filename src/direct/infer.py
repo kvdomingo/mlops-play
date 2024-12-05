@@ -19,10 +19,20 @@ def main():
     )
     model.load_weights(str(settings.BASE_DIR / ".checkpoints" / "muffin.weights.h5"))
 
+    sgd = keras.optimizers.SGD(settings.LEARNING_RATE)
+    loss = keras.losses.BinaryCrossentropy(from_logits=True)
+
+    model.compile(
+        loss=loss,
+        optimizer=sgd,
+        metrics=["accuracy"],
+    )
+
     test_ds: tf.data.Dataset = keras.utils.image_dataset_from_directory(
         settings.TEST_DIR,
         seed=settings.RANDOM_SEED,
         image_size=(img_h, img_w),
+        color_mode="grayscale",
         batch_size=settings.BATCH_SIZE,
     )
     total_test = len(test_ds) * settings.BATCH_SIZE
