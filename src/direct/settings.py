@@ -16,7 +16,7 @@ class Settings(BaseSettings):
     @computed_field
     @property
     def DATA_DIR(self) -> Path:
-        return self.BASE_DIR / "data"
+        return self.BASE_DIR / "data/muffin-vs-chihuahua"
 
     @computed_field
     @property

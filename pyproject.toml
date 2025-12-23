@@ -1,33 +1,28 @@
-[tool.poetry]
+[project]
 name = "mlops-play"
 version = "0.1.0"
 description = ""
-authors = ["Kenneth V. Domingo <hello@kvd.studio>"]
-readme = "README.md"
+authors = [{ name = "Kenneth V. Domingo", email = "hello@kvd.studio" }]
+requires-python = "~=3.12.0"
+readme = ""
+dependencies = [
+    "ray[default,data,train]~=2.0",
+    "pandas~=2.0",
+    "numpy~=2.0",
+    "matplotlib~=3.0",
+    "tqdm~=4.0",
+    "pydantic~=2.0",
+    "pydantic-settings~=2.0",
+    "protobuf~=3.0",
+]
 
-[tool.poetry.dependencies]
-python = "~3.12"
-ray = { extras = ["default", "train"], version = "^2.40.0" }
-tensorflow = { extras = ["and-cuda"], version = "^2.18.0" }
-tensorboard = "^2.18.0"
-pandas = "^2.2.3"
-numpy = "<2.1.0"
-matplotlib = "^3.9.3"
-tqdm = "^4.67.1"
-keras = "^3.7.0"
-nvidia-cudnn-cu12 = "9.3.0.75"
-pydantic = "^2.10.3"
-pydantic-settings = "^2.6.1"
-
-[tool.poetry.group.dev.dependencies]
-ruff = "^0.8.1"
-ipython = "^8.30.0"
-jupyter = "^1.1.1"
-notebook = "^7.2.2"
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+[dependency-groups]
+dev = [
+    "ipython~=9.0",
+    "jupyter~=1.0",
+    "notebook~=7.0",
+    "ruff~=0.0",
+]
 
 [tool.ruff]
 target-version = "py312"
@@ -51,3 +46,4 @@ force-wrap-aliases = true
 
 [tool.ruff.lint.pep8-naming]
 classmethod-decorators = ["pydantic.validator"]
+
