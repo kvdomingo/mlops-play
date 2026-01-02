@@ -1,0 +1,13 @@
+version: 3
+
+tasks:
+  setup:
+    desc: Initial setup
+    cmds:
+      - mise trust -y
+      - mise install -y
+      - pip install -U pre-commit
+      - pre-commit install
+      - uv sync --dev --all-extras
+      - uv pip install tf-keras --no-deps
+      - uv pip install https://repo.radeon.com/rocm/manylinux/rocm-rel-6.4.2/tensorflow_rocm-2.18.1-cp312-cp312-manylinux_2_28_x86_64.whl
